@@ -9,6 +9,8 @@
 parameters:
     app.locale: 'en'
     app.notifications.email_sender: anonymous@example.com
+    app.private_uploads_dir: '%kernel.project_dir%/uploads'
+    app.private_uploads_extensions: ['jpg', 'jpeg', 'png', 'gif', 'webp']
 
 services:
     # default configuration for services in *this* file

@@ -1,0 +1,83 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    Gallery | {{ parent() }}
+{% endblock %}
+
+{% block main %}
+    <div class="container-fluid">
+        <div class="row mb-4">
+            <div class="col-md-12">
+                <h1>{{ 'gallery.title'|trans }}</h1>
+                <p class="text-muted">{{ 'gallery.description'|trans }}</p>
+            </div>
+        </div>
+
+        {% if images is empty %}
+            <div class="alert alert-info">
+                {{ 'gallery.no_images'|trans }}
+            </div>
+        {% else %}
+            <div class="row g-4" id="gallery">
+                {% for image in images %}
+                    <div class="col-md-4 col-lg-3">
+                        <div class="card h-100 shadow-sm gallery-card">
+                            <div class="gallery-thumbnail">
+                                <a href="{{ path('gallery_stream', { filename: image.filename }) }}" target="_blank" rel="noopener noreferrer">
+                                    <img src="{{ path('gallery_stream', { filename: image.filename }) }}"
+                                         alt="{{ image.filename }}"
+                                         class="card-img-top"
+                                         style="object-fit: cover; height: 200px;">
+                                </a>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title text-truncate" title="{{ image.filename }}">
+                                    {{ image.filename }}
+                                </h5>
+                                <p class="card-text text-muted small">
+                                    <i class="tabler-icon-file-type-jpg"></i>
+                                    {{ (image.size / 1024)|round(2) }} KB
+                                </p>
+                                <p class="card-text text-muted small">
+                                    {{ image.mtime|format_datetime('medium', 'short') }}
+                                </p>
+                            </div>
+                            <div class="card-footer bg-transparent">
+                                <a href="{{ path('gallery_stream', { filename: image.filename }) }}"
+                                   class="btn btn-sm btn-primary w-100"
+                                   target="_blank"
+                                   rel="noopener noreferrer">
+                                    <twig:ux:icon name="tabler:download" /> {{ 'gallery.view'|trans }}
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+    </div>
+
+    <style>
+        .gallery-card {
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .gallery-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+        }
+
+        .gallery-thumbnail {
+            overflow: hidden;
+            background-color: #f8f9fa;
+        }
+
+        .gallery-thumbnail img {
+            transition: transform 0.3s;
+        }
+
+        .gallery-thumbnail:hover img {
+            transform: scale(1.05);
+        }
+    </style>
+{% endblock %}

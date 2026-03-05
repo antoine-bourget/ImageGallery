@@ -446,6 +446,26 @@
                 <source>paginator.current</source>
                 <target>(current)</target>
             </trans-unit>
+            <trans-unit id="menu.gallery">
+                <source>menu.gallery</source>
+                <target>Gallery</target>
+            </trans-unit>
+            <trans-unit id="gallery.title">
+                <source>gallery.title</source>
+                <target>My Private Gallery</target>
+            </trans-unit>
+            <trans-unit id="gallery.description">
+                <source>gallery.description</source>
+                <target>Your images stored securely</target>
+            </trans-unit>
+            <trans-unit id="gallery.no_images">
+                <source>gallery.no_images</source>
+                <target>No images in the gallery yet.</target>
+            </trans-unit>
+            <trans-unit id="gallery.view">
+                <source>gallery.view</source>
+                <target>View</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

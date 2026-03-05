@@ -442,6 +442,26 @@
                 <source>paginator.next</source>
                 <target>Suivant</target>
             </trans-unit>
+            <trans-unit id="menu.gallery">
+                <source>menu.gallery</source>
+                <target>Galerie</target>
+            </trans-unit>
+            <trans-unit id="gallery.title">
+                <source>gallery.title</source>
+                <target>Ma Galerie Privée</target>
+            </trans-unit>
+            <trans-unit id="gallery.description">
+                <source>gallery.description</source>
+                <target>Vos images privées stockées de manière sécurisée</target>
+            </trans-unit>
+            <trans-unit id="gallery.no_images">
+                <source>gallery.no_images</source>
+                <target>Aucune image dans la galerie pour le moment.</target>
+            </trans-unit>
+            <trans-unit id="gallery.view">
+                <source>gallery.view</source>
+                <target>Afficher</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>
